@@ -4,8 +4,8 @@ const router = require('./router.js');
 
 const app = express();
 
-app.use(cors()); // Habilita o CORS antes das rotas
-app.use(express.json()); // Faz a API aceitar dados JSON
+app.use(cors()); 
+app.use(express.json()); 
 app.use(router);
 
 module.exports = app;

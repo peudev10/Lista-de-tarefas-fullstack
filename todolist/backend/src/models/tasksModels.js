@@ -1,4 +1,4 @@
-const connection = require('./connection'); // como as funções vão acessar o banco de dados, ela preecisa da conexão
+const connection = require('./connection'); 
 
 // listar todas as tasks que estão no banco de dados
 const getAll = async () => {
@@ -6,7 +6,6 @@ const getAll = async () => {
         const [rows] = await connection.query('SELECT * FROM tasks');
         return rows;
     } catch (error) {
-        // Trate o erro conforme necessário
         console.error('Erro ao executar a consulta:', error);
         throw error;
     }
@@ -15,7 +14,7 @@ const getAll = async () => {
 const createTaks = async (task) =>{
     const {title} = task;
 
-    const dateUTC = new Date(Date.now()).toUTCString(); // pega a data atual
+    const dateUTC = new Date(Date.now()).toUTCString(); 
 
     const [createdTask] = await connection.execute('INSERT INTO tasks(title, status, created_at) VALUES (?,?,?)', [title,'Pendente',dateUTC]);
 
@@ -41,9 +40,6 @@ const getTasksStatus = async (task) =>{
     return statusTask;
 }
 
-
-
-// quando se tem várias funções, se exporta um objeto de funções
 module.exports = {
     getAll,
     createTaks,

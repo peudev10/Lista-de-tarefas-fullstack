@@ -7,8 +7,8 @@ const tasksController = require('./controllers/tasksControllers');
 const tasksMiddleware = require('./middleware/tasksMiddleware')
 
 // aqui é feito e pensado nas rotas que a api vai ter
-router.get('/tasks', tasksController.getAll); // busca as tarefas
-router.post('/tasks' , tasksMiddleware.validateFieldTitle, tasksController.createTaks)// adiciona uma nova tarefa´;
+router.get('/tasks', tasksController.getAll); 
+router.post('/tasks' , tasksMiddleware.validateFieldTitle, tasksController.createTaks)
 router.delete('/tasks/:id', tasksController.deleteTask);
 router.put('/tasks/:id', tasksMiddleware.validateFieldTitle, tasksMiddleware.validateFieldStatus, tasksController.updadeTask);
 
